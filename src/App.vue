@@ -1,12 +1,16 @@
 <template>
-  <div>
-    <h1>Ciao gaters</h1>
-  </div>
+  <HeaderComponent/>
+  <router-view></router-view>
+
 </template>
 
 <script>
+import HeaderComponent from './components/HeaderComponent.vue';
   export default {
     name: 'App',
+    components: {
+      HeaderComponent
+    },
     data(){
       return{
 
