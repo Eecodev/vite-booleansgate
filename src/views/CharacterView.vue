@@ -1,5 +1,6 @@
 <template>
     <h1 v-if="character">{{ character.name }}</h1>
+    <img :src="store.imgUrl + character.image" :alt="character.name">
 </template>
 
 <script>
