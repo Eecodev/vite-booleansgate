@@ -1,8 +1,11 @@
 <template>
     <div>
         <ul>
-            <li v-for="character in store.characters">
-                <h2>{{ character.name }}</h2>
+            <li v-for="character in  store.characters ">
+                <router-link :to="{ name: 'character', params: { id: character.id } }" class="btn btn-primary"
+                    :character="character">
+                    <h2>{{ character.name }}</h2>
+                </router-link>
             </li>
         </ul>
     </div>

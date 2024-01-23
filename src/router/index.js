@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import TypesView from '../views/TypesView.vue'
 import CharactersView from '../views/CharactersView.vue'
 import ItemsView from '../views/ItemsView.vue'
+import CharacterView from '../views/CharacterView.vue'
 
 
 const router = createRouter({
@@ -30,6 +31,11 @@ const router = createRouter({
       name: 'items',
       component: ItemsView
     },
+    {
+      path: '/characters/:id',
+      name: 'character',
+      component: CharacterView
+    }
   ]
 })
 
