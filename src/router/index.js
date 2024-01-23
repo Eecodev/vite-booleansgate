@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import TypeComponentVue from '@/components/TypeComponent.vue'
+import TypesView from '../views/TypesView.vue'
 import CharactersView from '../views/CharactersView.vue'
+import ItemsView from '../views/ItemsView.vue'
 
 
 const router = createRouter({
@@ -16,13 +17,18 @@ const router = createRouter({
 
       path: '/types',
       name: 'types',
-      component: TypeComponentVue
+      component: TypesView
     },
-    
 
+    {
       path: '/characters',
       name: 'characters',
       component: CharactersView
+    },
+    {
+      path: '/items',
+      name: 'items',
+      component: ItemsView
     },
   ]
 })

@@ -17,7 +17,7 @@ import { store } from "../assets/data/store.js";
 import axios from "axios";
 
 export default {
-  name: "TypeComponent",
+  name: "TypesView",
   data() {
     return {
       store,

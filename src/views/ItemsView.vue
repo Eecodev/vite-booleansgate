@@ -10,6 +10,7 @@
 import { store } from '../assets/data/store';
 import axios from 'axios';
 export default {
+  name: "ItemsView",
   data() {
     return {
       store,
@@ -18,11 +19,10 @@ export default {
   methods: {
     getItems() {
       axios.get(store.apiUrl + 'items')
-        .catch(error => { throw error; })
-        .then(response => {
+        .then((response) => {
           this.store.items = response.data.results;
-          console.log(items);
-        });
+          console.log(this.store.items);
+        }).catch(error => { throw error; });
     }
   },
   created() {

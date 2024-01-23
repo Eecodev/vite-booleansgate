@@ -38,14 +38,14 @@ export default {
             label: 'Characters',
             name: 'characters'
           },
-          // {
-          //     label: 'Types',
-          //     name: 'types'
-          // },
-          // {
-          //     label: 'Items',
-          //     name: 'items'
-          // }
+          {
+            label: 'Types',
+            name: 'types'
+          },
+          {
+            label: 'Items',
+            name: 'items'
+          }
 
         ]
     }
