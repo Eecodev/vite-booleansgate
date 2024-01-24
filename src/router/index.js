@@ -4,7 +4,6 @@ import ArenaView from '../views/ArenaView.vue'
 import TypesView from '../views/TypesView.vue'
 import CharactersView from '../views/CharactersView.vue'
 import ItemsView from '../views/ItemsView.vue'
-import CharacterView from '../views/CharacterView.vue'
 import ItemView from "../views/ItemView.vue";
 import CharacterView from "../views/CharacterView.vue";
 
