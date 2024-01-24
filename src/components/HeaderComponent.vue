@@ -31,7 +31,7 @@ export default {
       menu:
         [
           {
-            label: 'Home',
+            label: 'Arena',
             name: 'home'
           },
           {
