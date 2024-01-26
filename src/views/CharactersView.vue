@@ -25,7 +25,7 @@ export default {
     methods: {
         getCharactersData() {
             axios.get(this.store.apiUrl + "characters").then((res) => {
-                console.log(res.data);
+                //console.log(res.data);
                 this.store.characters = res.data.results
             })
         }
