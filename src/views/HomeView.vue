@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Choose your fight</h1>
     <CarouselComponent/>
   </div>
 </template>

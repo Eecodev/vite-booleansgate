@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 
-                <button class="btn btn-danger" @click="storeArena()"><router-link :to="{name: 'arena'}">Select</router-link></button>
+                <button class="btn btn-danger my-btn" @click="storeArena()"><router-link :to="{name: 'arena'}">Select Arena</router-link></button>
             </div>
         </div>
     </div>
@@ -88,12 +88,12 @@ import {store} from "../assets/data/store"
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
 
         .item {
-            float: left;
-            width: 700px;
-            height: 300px;
-            position: relative;
+            width: 100vw;
+            height: calc(100vh - 80px);
+           
         }
 
         .item img {
@@ -103,7 +103,6 @@ import {store} from "../assets/data/store"
         }
 
         .item .text {
-            position: absolute;
             right: 20px;
             bottom: 20px;
             text-align: right;
@@ -114,7 +113,14 @@ import {store} from "../assets/data/store"
             float: left;
             height: 300px;
             background: #000;
-            position: relative;
+            top: 80px;
+            left: 50px;
+            position: absolute;
+        }
+        .my-btn{
+            position: absolute;
+            bottom: 37%;
+            left: 5.5%;
         }
 
         .thumb {
@@ -133,54 +139,6 @@ import {store} from "../assets/data/store"
             opacity: 1;
         }
 
-        .prev, .next {
-            width: 20px;
-            height: 20px;
-            margin: 10px 0;
-            border-radius: 50%;
-            background: #ccc;
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%);
-            cursor: pointer;
-            z-index: 999;
-        }
-
-        .next {
-            bottom: 0;
-        }
-
-        /*
-        EXTRA: in questo esempio gli accordion vengono creati
-        usando 2 bordi di un quadratino ruotato di 45 gradi
-        In una versione base si possono usare delle icone
-        oppure i caratteri ∧ (&and;) e ∨ (&or;)
-        */
-        .prev::after {
-            content: '';
-            width: 10px;
-            height: 10px;
-            border-top: 1px solid black;
-            border-right: 1px solid black;
-            display: block;
-            position: absolute;
-            top: 35%;
-            left: 50%;
-            transform: translate(-50%) rotate(-45deg);
-        }
-
-        .next::before {
-            content: '';
-            width: 10px;
-            height: 10px;
-            border-top: 1px solid black;
-            border-right: 1px solid black;
-            display: block;
-            position: absolute;
-            bottom: 35%;
-            left: 50%;
-            transform: translate(-50%) rotate(135deg);
-        }
     }
 
 </style>
