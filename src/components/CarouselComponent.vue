@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container" v-if="slides">
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
@@ -13,69 +13,70 @@
                         <img :src="slide.image" alt="">
                     </div>
                 </div>
-                <button class="btn btn-danger">Select</button>
+                
+                <button class="btn btn-danger" @click="storeArena()"><router-link :to="{name: 'arena'}">Select</router-link></button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import {store} from "../assets/data/store"
     export default {
         name: 'CarouselComponent',
         data(){
             return{
                 slides: [
                     {
+                        id: 1,
                         image: '/public/images/Ascension.gif',
                         mp3: '/src/assets/audio/Dragon Ball Z - Cell Fight Music Theme.mp3'
                     },
                     {
+                        id: 2,
                         image: '/public/images/Cathedral Ruins.gif',
                         mp3: '/src/assets/audio/GUILES THEME.mp3'
                     },
                     {
+                        id: 3,
                         image: '/public/images/Hacker Room.gif',
                         mp3: '/src/assets/audio/Main Theme - Super Smash Bros Brawl.mp3'
                     },
                     {
+                        id: 4,
                         image: '/public/images/Lava Arena.gif',
                         mp3: '/src/assets/audio/Metal Gear Solid Main Theme.mp3'
                     },
                     {
+                        id: 5,
                         image: '/public/images/Temple.gif',
                         mp3: '/src/assets/audio/Mortal Kombat Theme Song.mp3'
                     },
                     {
+                        id: 6,
                         image: '/public/images/Waterfall Sight.gif',
                         mp3: '/src/assets/audio/Street Fighter II Ken Theme Original.mp3'
                     },
 
                 ],
-                activeIndex: 0
+                activeIndex: 0,
+                store
+          
             }
         },
         methods: {
-            next(){
-                if (this.activeIndex < this.slides.lenght -1){
-                    this.activeIndex ++
-                } else {
-                    this.activeIndex = 0
-                }
-            },
-            prev(){
-                if (this.activeIndex === 0){
-                    this.activeIndex = this.slides.lenght
-                } else {
-                    this.activeindex--
-                }
-            },
             selectThumbnail(index){
                 this.activeIndex = index;
+            },
+            storeArena(){
+                this.store.selectedArena.img = this.slides[this.activeIndex].image;
+                this.store.selectedArena.audio = this.slides[this.activeIndex].mp3;
+                console.log(this.store.selectedArena.img);
+                console.log(this.store.selectedArena.audio);
             }
         },
         mounted() {
-            this.next();
-            this.prev();
+            
         }
     }
 </script>
