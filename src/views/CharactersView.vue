@@ -112,6 +112,7 @@
     //     let url = `http://[::1]:5173/storage/images/${nomeFormat}.gif`;
     //     return url;
     //   },
+    
     },
     mounted() {
       this.getCharactersData();
