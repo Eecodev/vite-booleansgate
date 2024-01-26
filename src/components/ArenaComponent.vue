@@ -1,38 +1,43 @@
 <template>
-    <div v-if="character1 && newItemsArray1.length > 0">
-        <div class="health-bar">
-            <div class="life-points"
-                :class="{ 'highhealth': (percentageLife1 > 50), 'midhealth': (percentageLife1 <= 50 && percentageLife1 > 15), 'lowhealth': (percentageLife1 <= 15), 'd-none': (percentageLife1 <= 0) }"
-                :style="{ width: percentageLife1 + '%' }" ref="life1"></div>
+    <div class="arena-background">
+        <img :src="store.selectedArena.img" class="arenaImage" alt="Arena">
+        <audio :src="store.selectedArena.audio" autoplay></audio>
+        <div v-if="character1 && newItemsArray1.length > 0">
+            <div class="health-bar">
+                <div class="life-points"
+                    :class="{ 'highhealth': (percentageLife1 > 50), 'midhealth': (percentageLife1 <= 50 && percentageLife1 > 15), 'lowhealth': (percentageLife1 <= 15), 'd-none': (percentageLife1 <= 0) }"
+                    :style="{ width: percentageLife1 + '%' }" ref="life1"></div>
+            </div>
+            <h1>{{ character1.name }}</h1>
+            <ul>
+                <li v-for="item in newItemsArray1">
+                    {{ item.name }}
+                </li>
+            </ul>
+
         </div>
-        <h1>{{ character1.name }}</h1>
-        <ul>
-            <li v-for="item in newItemsArray1">
-                {{ item.name }}
-            </li>
-        </ul>
 
-    </div>
-
-    <div v-if="character2 && newItemsArray2.length > 0">
-        <div class="health-bar">
-            <div class="life-points" v-bind:style="{ width: percentageLife2 + '%' }"
-                :class="{ 'highhealth': (percentageLife2 > 50), 'midhealth': (percentageLife2 <= 50 && percentageLife2 > 15), 'lowhealth': (percentageLife2 <= 15), 'd-none': (percentageLife2 <= 0) }"
-                ref="life2"></div>
+        <div v-if="character2 && newItemsArray2.length > 0">
+            <div class="health-bar">
+                <div class="life-points" v-bind:style="{ width: percentageLife2 + '%' }"
+                    :class="{ 'highhealth': (percentageLife2 > 50), 'midhealth': (percentageLife2 <= 50 && percentageLife2 > 15), 'lowhealth': (percentageLife2 <= 15), 'd-none': (percentageLife2 <= 0) }"
+                    ref="life2"></div>
+            </div>
+            <h1>{{ character2.name }}</h1>
+            <ul>
+                <li v-for="item in newItemsArray2">
+                    {{ item.name }}
+                </li>
+            </ul>
         </div>
-        <h1>{{ character2.name }}</h1>
-        <ul>
-            <li v-for="item in newItemsArray2">
-                {{ item.name }}
-            </li>
-        </ul>
-    </div>
-    <div v-if="winnerMessage">
-        <h1>{{ winnerMessage }}</h1>
-    </div>
+        <div v-if="winnerMessage">
+            <h1>{{ winnerMessage }}</h1>
+        </div>
 
-    <button @click="generate(), generateItems()" :disabled="cannotGenerate === true" class="btn btn-info">Generate</button>
-    <button :disabled="store.isFigthing === false" @click="startFigthing()" class="btn btn-danger">Fight</button>
+        <button @click="generate(), generateItems()" :disabled="cannotGenerate === true"
+            class="btn btn-info">Generate</button>
+        <button :disabled="store.isFigthing === false" @click="startFigthing()" class="btn btn-danger">Fight</button>
+    </div>
 </template>
 
 <script>
@@ -216,6 +221,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.arena-background {
+    width: 100%;
+    height: calc(100vh - 56px);
+    position: relative;
+    overflow: hidden;
+
+    .arenaImage {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}
+
 .health-bar {
     width: 300px;
     border-radius: 30px;
