@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>ciao</h1>
         <ArenaComponent />
     </div>
 </template>
