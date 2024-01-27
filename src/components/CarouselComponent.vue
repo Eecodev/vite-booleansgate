@@ -1,27 +1,27 @@
 <template>
-   
     <div class="container" v-if="slides">
-            <div tabindex="0">
+        <div tabindex="0">
 
-                <div class="item">
-                    <img :src="slides[activeIndex].image" alt="">
-                    <audio :src="slides[activeIndex].mp3" autoplay></audio>
-                </div>
-
-                <div class="thumbs">
-                    <div class="thumb" v-for="(slide, index) in slides" :key="index" :class="{ 'active': index === activeIndex }" @click="selectThumbnail(index)">
-                        <img :src="slide.image" alt="">
-                    </div>
-                </div>
-
-                <div class="my-btn">
-                    <router-link :to="{ name: 'arena' }"><button class="btn btn-danger "
-                @click="storeArena()">Select Arena</button></router-link>
-                </div>
-                
+            <div class="item">
+                <img :src="slides[activeIndex].image" alt="">
+                <audio :src="slides[activeIndex].mp3" autoplay></audio>
             </div>
-     </div>
 
+
+            <div class="thumbs d-flex flex-column">
+                <div class="thumb" v-for="(slide, index) in slides" :key="index"
+                    :class="{ 'active': index === activeIndex }" @click="selectThumbnail(index)">
+                    <img :src="slide.image" alt="">
+                </div>
+            </div>
+
+            <div class="my-btn">
+                <router-link :to="{ name: 'arena' }"><button class="btn btn-danger " @click="storeArena()">Select
+                        Arena</button></router-link>
+            </div>
+
+        </div>
+    </div>
 </template>
 
 <script>
@@ -86,72 +86,77 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+    font-family: "VT323", monospace;
+    //height: 100vh;
+    height: calc(100vh - 56px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 
- .container{
-        font-family: "VT323", monospace;
-        //height: 100vh;
-        height: calc(100vh - 56px); 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        
 
-        .item {           
-            width: 100vw;
-            height: calc(100vh - 56px);  
-            position: relative;  
-            
-        }
+    .item {
+        width: 100vw;
+        height: calc(100vh - 56px);
+        position: relative;
 
-        .item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    }
 
-        .thumbs {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 30px;
-            flex-direction: row;
-            cursor: pointer;
-            border: 2px solid #ccc;    
-            position: absolute;
-            bottom: 15px;
-            left: 0;
-        }
-        .thumb {
-        height: calc((500px) / 6);
-        width: 100%;
-        opacity: 0.5;
-        }
-
-        .thumb img {
+    .item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        }
+    }
 
-        .thumb.active {
+    .thumbs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+        flex-direction: row;
+        cursor: pointer;
+        border: 2px solid #ccc;
+        position: absolute;
+        bottom: 70px;
+        left: 0;
+    }
+
+    .thumb {
+        height: calc((500px) / 6);
+        width: 100%;
+        opacity: 0.5;
+    }
+
+    .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .thumb.active {
         border: 2px solid #ccc;
         opacity: 1;
         scale: 1.1;
-        }
-        .my-btn{
+    }
+
+    .my-btn {
         display: flex;
         justify-content: center;
         align-items: center;
         position: absolute;
-        bottom:0px;
+        bottom: 0;
         width: 100%;
-        }
+        padding: 20px;
 
-        .btn-danger {
-            border: 2px solid #ccc;
-        }
+    }
+
+    .btn-danger {
+        border: 2px solid #ccc;
+        width: 200px;
+        font-size: 30px;
+        color: black;
+        background-color: rgb(190, 190, 15) !important;
+    }
 }
-
 </style>

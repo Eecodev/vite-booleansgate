@@ -10,6 +10,9 @@ export default {
     name: "ArenaView",
     components: {
         ArenaComponent
+    },
+    reloadHandler() {
+        this.$router.push('/')
     }
 }
 </script>
