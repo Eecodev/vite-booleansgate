@@ -1,12 +1,17 @@
 <template>
   <div>
-    <h1>ciao</h1>
+    <CarouselComponent/>
   </div>
 </template>
 
 <script>
+import CarouselComponent from '../components/CarouselComponent.vue';
+
   export default {
     name: 'HomeView',
+    components: {
+      CarouselComponent
+    },
     data(){
       return{
 
