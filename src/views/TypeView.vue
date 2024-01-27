@@ -3,9 +3,8 @@
     <div class="container text-center py-5">
       <div v-if="type">
         <h1 class="py-3">{{ type.name }}</h1>
-        <!-- <img :src="store.imgUrl + type.image" :alt="type.name"> -->
         <div class="desc-container">
-          <p class="p-3 desc" ref="desc" @scroll="checkOverflow">{{ type.desc }}</p>
+          <p class="p-3 desc" ref="desc" @scroll="checkOverflow" v-html="formattedDescription"></p>
           <div v-if="showArrow" class="fa-solid arrow-down"></div>
           <div v-if="showDots" class="dots">...</div>
         </div>
@@ -16,6 +15,7 @@
 
 <script>
 import axios from 'axios';
+import MarkdownIt from 'markdown-it';
 import { store } from '../assets/data/store';
 
 export default {
@@ -27,6 +27,15 @@ export default {
       showArrow: false,
       showDots: false,
     };
+  },
+  computed: {
+    formattedDescription() {
+      // Usa MarkdownIt per convertire il testo in HTML
+      const md = new MarkdownIt();
+      const html = md.render(this.type.desc);
+
+      return html;
+    },
   },
   methods: {
     getType() {
@@ -83,6 +92,18 @@ h1{
   box-shadow: 2px 2px 3px black;
   &::-webkit-scrollbar {
     width: 0;
+  }
+
+  h3 {
+    font-size: 2rem;
+    color: purple;
+    font-weight: bold;
+  }
+
+  h4 {
+    font-size: 1rem;
+    color: red;
+    margin-left: 1rem; // Aggiungi un margine sinistro di 1rem per la formattazione richiesta
   }
 }
 
