@@ -38,6 +38,12 @@ export default {
         .get(this.store.apiUrl + "types")
         .then((res) => {
           console.log("Response data:", res.data);
+
+          // Rimuovi i segni ### dal testo della descrizione
+          res.data.results.forEach((type) => {
+            type.desc = type.desc.replace(/###/g, '');
+          });
+
           this.store.types = res.data.results;
           console.log("Store types:", this.store.types);
         })
