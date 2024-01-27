@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container" v-if="slides">
-            <div class="slider-wrapper" tabindex="0">
+            <div class="carousel" tabindex="0">
 
                 <div class="item">
                     <img :src="slides[activeIndex].image" alt="">
@@ -14,12 +14,8 @@
                     </div>
                 </div>
 
-                
-                <button class="btn btn-danger my-btn" @click="storeArena()"><router-link :to="{name: 'arena'}">Select Arena</router-link></button>
-
-
                 <router-link :to="{ name: 'arena' }"><button class="btn btn-danger"
-                        @click="storeArena()">Select</button></router-link>
+                @click="storeArena()">Select</button></router-link>
 
             </div>
         </div>

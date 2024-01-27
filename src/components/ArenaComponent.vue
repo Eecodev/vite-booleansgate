@@ -10,7 +10,7 @@
             </div>
             <h1>{{ character1.name }}</h1>
             <ul>
-                <li v-for="item in newItemsArray1">
+                <li v-for="item in newItemsArray1"> 
                     {{ item.name }}
                 </li>
             </ul>
