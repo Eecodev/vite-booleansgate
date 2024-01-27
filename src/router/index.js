@@ -7,6 +7,7 @@ import CharactersView from '../views/CharactersView.vue'
 import ItemsView from '../views/ItemsView.vue'
 import ItemView from "../views/ItemView.vue";
 import CharacterView from "../views/CharacterView.vue";
+import TypeView from "../views/TypeView.vue";
 
 
 
@@ -46,10 +47,17 @@ const router = createRouter({
       component: CharacterView,
     },
     {
-      path: "/item/:id",
-      name: "/item",
+      path: "/items/:id",
+      name: "item",
       component: ItemView,
     },
+
+    {
+      path: "/types/:id",
+      name: "type",
+      component: TypeView,
+    },
+
 
   ],
 });
