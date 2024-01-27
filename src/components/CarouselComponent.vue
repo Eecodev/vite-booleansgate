@@ -88,21 +88,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    .item {
-        float: left;
-        width: 700px;
-        height: 300px;
-        position: relative;
-    }
-
-
-    .container{
+ .container{
         height: 100vh;
         display: flex;
         justify-content: center;
@@ -122,10 +109,11 @@ export default {
         }
 
         .item .text {
-            right: 20px;
-            bottom: 20px;
-            text-align: right;
-            color: white;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        text-align: right;
+        color: white;
         }
 
         .thumbs {
@@ -142,42 +130,20 @@ export default {
             left: 5.5%;
         }
 
-    .item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .item .text {
-        position: absolute;
-        right: 20px;
-        bottom: 20px;
-        text-align: right;
-        color: white;
-    }
-
-    .thumbs {
-        float: left;
-        height: 300px;
-        background: #000;
-        position: relative;
-    }
-
-
-    .thumb {
+        .thumb {
         height: calc((300px) / 6);
         opacity: 0.5;
-    }
+        }
 
-    .thumb img {
+        .thumb img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-    }
+        }
 
-    .thumb.active {
+        .thumb.active {
         border: 2px solid #ccc;
         opacity: 1;
-    }
+        }
 }
 </style>
