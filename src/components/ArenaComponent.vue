@@ -303,7 +303,7 @@ export default {
 .arena-background {
     font-family: "VT323", monospace;
     width: 100%;
-    height: calc(100vh - 56px);
+    height: calc(100vh - 77px);
     position: relative;
     overflow: hidden;
     padding: 30px;
@@ -468,10 +468,12 @@ export default {
 
 .questionMark {
     height: 600px;
+    filter:drop-shadow(0px 0px 20px black);
 
     img {
         height: 100%;
         width: 100%;
+       
     }
 }
 .audio-btn {
