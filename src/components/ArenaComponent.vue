@@ -1,7 +1,7 @@
 <template>
     <div class="arena-background">
         <img :src="store.selectedArena.img" class="arenaImage" alt="Arena">
-        <audio :src="store.selectedArena.audio" autoplay></audio>
+        <audio ref="audio" :src="store.selectedArena.audio" autoplay></audio>
         <div class="d-flex justify-content-between ">
             <div v-if="character1 && newItemsArray1.length > 0">
                 <div class="d-flex align-items-center">
@@ -29,6 +29,11 @@
                     </div>
 
                 </div>
+
+                <button @click="toggleAudio()" class="audio-btn btn" >
+                <i v-if="audioPlay" class="fa-solid fa-volume-high"></i>
+                <i v-else class="fa-solid fa-volume-xmark"></i>
+                </button>
 
 
             </div>
@@ -130,7 +135,8 @@ export default {
             damageCalculation2: 0,
             questionMark: true,
             generating: false,
-            buttonsViewed: true
+            buttonsViewed: true,
+            audioPlay: true
 
         }
     },
@@ -272,6 +278,17 @@ export default {
                 this.winnerMessage = this.character2.name + ' wins'
                 this.percentageLife1 = 0
             }
+        },
+        toggleAudio() {
+            this.audioPlay = !this.audioPlay;
+            const audioElement = this.$refs.audio;
+            if (audioElement) {
+                if (this.audioPlay) {
+                    audioElement.play();
+                } else {
+                    audioElement.pause();
+                }
+            }
         }
     },
     created() {
@@ -361,6 +378,7 @@ export default {
         bottom: -80px;
         left: 0;
         transition: all 1s ease-in-out;
+        filter:drop-shadow(0px 0px 20px black);
     }
 
     .img-container1-transition {
@@ -372,6 +390,7 @@ export default {
         bottom: -80px;
         right: 30px;
         transition: all 1s ease-in-out;
+        filter:drop-shadow(0px 0px 20px black);
 
     }
 
@@ -425,6 +444,7 @@ export default {
     padding: 20px;
     display: inline-block;
     border-radius: 20px;
+    z-index: 2000;
 
 }
 
@@ -432,9 +452,12 @@ export default {
     font-size: 40px;
     color: white;
     background-color: rgba(0, 0, 0, 0.733);
-    padding: 10px;
+    padding: 5px;
     display: inline-block;
     border-radius: 50%;
+    height:70px;
+    width: 70px;
+    text-align: center;
 }
 
 .right-character {
@@ -451,6 +474,22 @@ export default {
         width: 100%;
     }
 }
+.audio-btn {
+        position: absolute;
+        font-size: 2em;
+        bottom: 50px;
+        right:30px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.121);
+        color: white;
+        border-radius: 50%;
+        z-index:1000;
+        
+        &:hover{
+            color: red;
+        }
+        
+    }
 
 @keyframes bounceInLeft {
 

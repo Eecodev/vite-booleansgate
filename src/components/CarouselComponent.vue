@@ -16,8 +16,6 @@
                 <i v-else class="fa-solid fa-volume-xmark"></i>
             </button>
 
-
-
             <div class="thumbs d-flex flex-column">
                 <div class="thumb" v-for="(slide, index) in slides" :key="index"
                     :class="{ 'active': index === activeIndex }" @click="selectThumbnail(index)">
