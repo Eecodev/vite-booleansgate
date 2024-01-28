@@ -1,4 +1,6 @@
 <template>
+  <div class="type-page" :style="{ backgroundImage: `url(/images/backgrounds/${type.name}.png), url(/images/backgrounds/${type.name}.jpg), url(/images/backgrounds/${type.name}.jpeg)` }">
+
   <div class="type-page">
     <div class="container text-center py-5">
       <div v-if="type">
@@ -11,6 +13,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -30,10 +33,8 @@ export default {
   },
   computed: {
     formattedDescription() {
-      // Usa MarkdownIt per convertire il testo in HTML
       const md = new MarkdownIt();
       const html = md.render(this.type.desc);
-
       return html;
     },
   },
@@ -65,9 +66,9 @@ export default {
 <style lang="scss" scoped>
 .type-page {
   font-family: "VT323", monospace;
-  background-image: url("https://img.itch.zone/aW1hZ2UvMTIxNjU4LzU2MDM4MS5wbmc=/315x250%23c/yrkGs9.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-y: -50px;
   height: calc(100vh - 77px);
   width: 100%;
   display: flex;
@@ -76,9 +77,10 @@ export default {
   color: rgb(202, 167, 90);
 }
 h1{
-  font-weight:bolder;
+  font-weight: bolder;
   color: red;
 }
+
 .desc-container {
   position: relative;
 }
@@ -130,4 +132,6 @@ h1{
   font-size: 1.5em;
   pointer-events: none;
 }
+
+
 </style>
