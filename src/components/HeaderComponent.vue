@@ -9,7 +9,7 @@
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item" v-for="item in menu" :key="item.name">
             <router-link
-              class="nav-link text-white mx-3"
+              class="nav-link mx-3"
               active-class="active"
               :to="{ name: item.name }"
               >{{ item.label }}</router-link
@@ -59,6 +59,22 @@ export default {
   background-image: linear-gradient(#0d1122, #142c26);
   font-family: "VT323", monospace;
   font-size: 30px;
+
+  .nav-link:hover{
+    color: red;
+    scale: 1.2;
+  }
+
+  .nav-link{
+    color:white;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .active {
+    text-decoration: underline;
+    color: red;
+    scale: 1.2;
+  }
 }
 
 #logo {

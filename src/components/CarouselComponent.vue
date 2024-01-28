@@ -4,12 +4,18 @@
 
             <div class="item">
                 <img :src="slides[activeIndex].image" alt="">
-                <audio :src="slides[activeIndex].mp3" autoplay></audio>
+                <audio ref="audio" :src="slides[activeIndex].mp3" autoplay></audio>
             </div>
 
             <div v-if="slides" class="arena-name">
                 <h1 class="display-1">{{ slides[activeIndex].name }}</h1>
             </div>
+
+            <button @click="toggleAudio()" class="audio-btn btn" >
+                <i v-if="audioPlay" class="fa-solid fa-volume-high"></i>
+                <i v-else class="fa-solid fa-volume-xmark"></i>
+            </button>
+
 
 
             <div class="thumbs d-flex flex-column">
@@ -73,19 +79,33 @@ export default {
                 },
             ],
             activeIndex: 0,
-            store
+            store,
+            audioPlay: true
 
         }
     },
     methods: {
         selectThumbnail(index) {
             this.activeIndex = index;
+            this.$refs.audio.focus();
+            this.audioPlay = true;
         },
         storeArena() {
             this.store.selectedArena.img = this.slides[this.activeIndex].image;
             this.store.selectedArena.audio = this.slides[this.activeIndex].mp3;
             console.log(this.store.selectedArena.img);
             console.log(this.store.selectedArena.audio);
+        },
+        toggleAudio() {
+            this.audioPlay = !this.audioPlay;
+            const audioElement = this.$refs.audio;
+            if (audioElement) {
+                if (this.audioPlay) {
+                    audioElement.play();
+                } else {
+                    audioElement.pause();
+                }
+            }
         }
     },
     mounted() {
@@ -112,7 +132,21 @@ export default {
         text-shadow: 8px 8px 8px black;
     }
 
-
+    .audio-btn {
+        position: absolute;
+        font-size: 2em;
+        top: 100px;
+        right:30px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.121);
+        color: white;
+        border-radius: 50%;
+        
+        &:hover{
+            color: red;
+        }
+        
+    }
     .item {
         width: 100vw;
         height: calc(100vh - 77px);
