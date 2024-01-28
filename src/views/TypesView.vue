@@ -2,7 +2,7 @@
   <div class="page">
     <div class="types-page">
       <div class="container">
-        <h1>Lista Types</h1>
+        <h1>Types List</h1>
         <div class="row text-center">
           <div v-for="tipo in store.types" class="col-xl-3 col-lg-4 col-md-6 col-12 mt-5">
             <router-link :to="{ name: 'type', params: { id: tipo.id } }" class="btn "
@@ -70,7 +70,7 @@ h1 {
   background-image: url("https://img.itch.zone/aW1hZ2UvMTIxNjU4LzU2MDM4MS5wbmc=/315x250%23c/yrkGs9.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: calc(100vh - 56px);
+  height: calc(100vh - 77px);
   width: 100%;
   display: flex;
   justify-content: center;

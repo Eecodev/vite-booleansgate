@@ -89,7 +89,7 @@ export default {
 .container {
     font-family: "VT323", monospace;
     //height: 100vh;
-    height: calc(100vh - 56px);
+    height: calc(100vh - 77px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,7 +98,7 @@ export default {
 
     .item {
         width: 100vw;
-        height: calc(100vh - 56px);
+        height: calc(100vh - 77px);
         position: relative;
 
     }

@@ -1,56 +1,73 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg my-nav">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <div>
+        <a class="navbar-brand" href="#" id="logo">BooleansGate</a>
+      </div>
+
+      <div class="">
+        <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item" v-for="item in menu" :key="item.name">
-            <router-link class="nav-link" active-class="active" :to="{ name: item.name }">{{ item.label }}</router-link>
+            <router-link
+              class="nav-link text-white mx-3"
+              active-class="active"
+              :to="{ name: item.name }"
+              >{{ item.label }}</router-link
+            >
           </li>
         </ul>
-
-
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
+
     </div>
   </nav>
 </template>
 
 <script>
 export default {
-  name: 'HeaderComponent',
+  name: "HeaderComponent",
   data() {
     return {
-      menu:
-        [
-          {
-            label: 'Arena',
-            name: 'home'
-          },
-          {
-            label: 'Characters',
-            name: 'characters'
-          },
-          {
-            label: 'Types',
-            name: 'types'
-          },
-          {
-            label: 'Items',
-            name: 'items'
-          }
-
-        ]
-    }
-  }
-}
+      menu: [
+        {
+          label: "Arena",
+          name: "home",
+        },
+        {
+          label: "Characters",
+          name: "characters",
+        },
+        {
+          label: "Types",
+          name: "types",
+        },
+        {
+          label: "Items",
+          name: "items",
+        },
+        {
+          label: "About Us",
+          name: "about",
+        },
+      ],
+    };
+  },
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.my-nav {
+  background-image: linear-gradient(#0d1122, #142c26);
+  font-family: "VT323", monospace;
+  font-size: 30px;
+}
+
+#logo {
+  text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.5);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  color: red;
+  padding: 0 30px;
+}
+</style>

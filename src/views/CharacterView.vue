@@ -68,7 +68,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: calc(100vh - 56px);
+    height: calc(100vh - 77px);
     width: 100%;
     display: flex;
     justify-content: center;

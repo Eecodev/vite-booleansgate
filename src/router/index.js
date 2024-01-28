@@ -8,6 +8,7 @@ import ItemsView from '../views/ItemsView.vue'
 import ItemView from "../views/ItemView.vue";
 import CharacterView from "../views/CharacterView.vue";
 import TypeView from "../views/TypeView.vue";
+import AboutView from '../views/AboutView.vue';
 
 
 
@@ -58,7 +59,11 @@ const router = createRouter({
       component: TypeView,
     },
 
-
+    {
+      path: "/about",
+      name: "about",
+      component: AboutView,
+    }
   ],
 });
 

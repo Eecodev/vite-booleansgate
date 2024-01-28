@@ -2,7 +2,7 @@
   <div class="page">
     <div class="items-page d-flex">
       <div class="container">
-        <h1>Lista Items</h1>
+        <h1>Items List</h1>
         <div class="mb-2 filter-macro-section">
           <button @click="toggleFilterButtons" class="filter-toggle-btn mb-2 ">Filter >></button>
           <div  class="filter-section mb-1">
@@ -126,7 +126,7 @@ h5 {
   background-image: url("https://img.itch.zone/aW1hZ2UvMTIxNjU4LzU2MDM4MS5wbmc=/315x250%23c/yrkGs9.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: calc(100vh - 56px);
+  height: calc(100vh - 77px);
   width: 100%;
   display: flex;
   justify-content: center;
