@@ -8,6 +8,7 @@ export const store = reactive({
     types: [],
     isFighting: false,
     selectedArena: {
+        name: "",
         img: "",
         audio: ""
     }

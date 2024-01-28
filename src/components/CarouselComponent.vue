@@ -7,6 +7,10 @@
                 <audio :src="slides[activeIndex].mp3" autoplay></audio>
             </div>
 
+            <div v-if="slides" class="arena-name">
+                <h1 class="display-1">{{ slides[activeIndex].name }}</h1>
+            </div>
+
 
             <div class="thumbs d-flex flex-column">
                 <div class="thumb" v-for="(slide, index) in slides" :key="index"
@@ -33,35 +37,40 @@ export default {
             slides: [
                 {
                     id: 1,
+                    name: 'Ascension',
                     image: '/images/Ascension.gif',
                     mp3: '/src/assets/audio/Dragon Ball Z - Cell Fight Music Theme.mp3'
                 },
                 {
                     id: 2,
+                    name: 'Cathedral Ruins',
                     image: '/images/CathedralRuins.gif',
                     mp3: '/src/assets/audio/GUILES THEME.mp3'
                 },
                 {
                     id: 3,
+                    name: 'Hacker Room',
                     image: '/images/HackerRoom.gif',
                     mp3: '/src/assets/audio/Main Theme - Super Smash Bros Brawl.mp3'
                 },
                 {
                     id: 4,
+                    name: 'Lava Arena',
                     image: '/images/LavaArena.gif',
                     mp3: '/src/assets/audio/Metal Gear Solid Main Theme.mp3'
                 },
                 {
                     id: 5,
+                    name: 'Temple',
                     image: '/images/Temple.gif',
                     mp3: '/src/assets/audio/Mortal Kombat Theme Song.mp3'
                 },
                 {
                     id: 6,
+                    name: 'Waterfall Sight',
                     image: '/images/WaterfallSight.gif',
                     mp3: '/src/assets/audio/Street Fighter II Ken Theme Original.mp3'
                 },
-
             ],
             activeIndex: 0,
             store
@@ -94,6 +103,14 @@ export default {
     justify-content: center;
     align-items: center;
 
+    .arena-name{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-shadow: 8px 8px 8px black;
+    }
 
 
     .item {
