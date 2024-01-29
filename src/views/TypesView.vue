@@ -89,6 +89,9 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+
+  overflow: hidden;
 
 }
 h5{
@@ -109,6 +112,17 @@ h5{
     display: flex;
   flex-direction: column;
   justify-content: space-between;
+  h5{
+    height: 10%;
+    margin-bottom: 0;
+  }
+  img{
+    height: 65%;
+    overflow: hidden;
+  }
+  p{
+    height: 25%;
+  }
   }
 }
 </style>
