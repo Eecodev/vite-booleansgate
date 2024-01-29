@@ -30,14 +30,18 @@
 
                 </div>
 
-                <button @click="toggleAudio()" class="audio-btn btn" >
-                <i v-if="audioPlay" class="fa-solid fa-volume-high"></i>
-                <i v-else class="fa-solid fa-volume-xmark"></i>
+                <button @click="toggleAudio()" class="audio-btn btn">
+                    <i v-if="audioPlay" class="fa-solid fa-volume-high"></i>
+                    <i v-else class="fa-solid fa-volume-xmark"></i>
                 </button>
 
 
             </div>
-
+            <img class="explosion" src="/images/explosion.gif" alt="boom"
+                v-if="cannotGenerate === true && superExpurosion === true">
+            <div>
+                <img src="/images/vs.png" alt="vs" v-if="versus === true">
+            </div>
             <div v-if="character2 && newItemsArray2.length > 0">
                 <div class="d-flex align-items-center">
                     <div class="life-percentage me-4">
@@ -84,7 +88,7 @@
             <button @click="generate(), generateItems()" :disabled="cannotGenerate === true"
                 class="btn btn-danger me-3">Generate</button>
             <button :disabled="store.isFigthing === false" :class="{ 'btn-opacity': (store.isFigthing === false) }"
-                @click="startFigthing()" class="btn btn-danger fight">Fight</button>
+                @click="startFigthing(), expurosion()" class="btn btn-danger fight">Fight</button>
         </div>
 
 
@@ -136,7 +140,9 @@ export default {
             questionMark: true,
             generating: false,
             buttonsViewed: true,
-            audioPlay: true
+            audioPlay: true,
+            superExpurosion: false,
+            versus: false
 
         }
     },
@@ -154,6 +160,8 @@ export default {
             })
         },
         generate() {
+            this.versus = true;
+            this.superExpurosion = false;
             this.generating = true
             this.questionMark = true
             this.percentageLife1 = 100;
@@ -267,6 +275,7 @@ export default {
         },
         gamerWinner() {
             this.buttonsViewed = true;
+            this.superExpurosion = false;
             if (this.percentageLife1 <= 0 && this.percentageLife2 <= 0) {
                 this.winnerMessage = 'Draw'
                 this.percentageLife1 = 0
@@ -289,6 +298,11 @@ export default {
                     audioElement.pause();
                 }
             }
+        },
+        expurosion() {
+            setTimeout(() => {
+                this.superExpurosion = true
+            }, 2000)
         }
     },
     created() {
@@ -317,6 +331,14 @@ export default {
         left: 0;
         z-index: -1;
     }
+}
+
+.explosion {
+    position: absolute;
+    bottom: 40px;
+    left: 43%;
+    width: 300px;
+    z-index: 2;
 }
 
 .health-bar {
@@ -378,7 +400,7 @@ export default {
         bottom: -80px;
         left: 0;
         transition: all 1s ease-in-out;
-        filter:drop-shadow(0px 0px 20px black);
+        filter: drop-shadow(0px 0px 20px black);
     }
 
     .img-container1-transition {
@@ -390,7 +412,7 @@ export default {
         bottom: -80px;
         right: 30px;
         transition: all 1s ease-in-out;
-        filter:drop-shadow(0px 0px 20px black);
+        filter: drop-shadow(0px 0px 20px black);
 
     }
 
@@ -455,7 +477,7 @@ export default {
     padding: 5px;
     display: inline-block;
     border-radius: 50%;
-    height:70px;
+    height: 70px;
     width: 70px;
     text-align: center;
 }
@@ -467,31 +489,32 @@ export default {
 }
 
 .questionMark {
-    height: 600px;
-    filter:drop-shadow(0px 0px 20px black);
+    height: 570px;
+    filter: drop-shadow(0px 0px 20px black);
 
     img {
         height: 100%;
         width: 100%;
-       
+
     }
 }
+
 .audio-btn {
-        position: absolute;
-        font-size: 2em;
-        bottom: 50px;
-        right:30px;
-        padding: 10px;
-        background-color: rgba(0, 0, 0, 0.121);
-        color: white;
-        border-radius: 50%;
-        z-index:1000;
-        
-        &:hover{
-            color: red;
-        }
-        
+    position: absolute;
+    font-size: 2em;
+    bottom: 50px;
+    right: 30px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.121);
+    color: white;
+    border-radius: 50%;
+    z-index: 1000;
+
+    &:hover {
+        color: red;
     }
+
+}
 
 @keyframes bounceInLeft {
 
