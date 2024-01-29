@@ -11,7 +11,7 @@
                 <h1 class="display-1">{{ slides[activeIndex].name }}</h1>
             </div>
 
-            <button @click="toggleAudio()" class="audio-btn btn" >
+            <button @click="toggleAudio()" class="audio-btn btn">
                 <i v-if="audioPlay" class="fa-solid fa-volume-high"></i>
                 <i v-else class="fa-solid fa-volume-xmark"></i>
             </button>
@@ -107,7 +107,7 @@ export default {
         }
     },
     mounted() {
-
+        this.toggleAudio();
     }
 }
 </script>
@@ -121,7 +121,7 @@ export default {
     justify-content: center;
     align-items: center;
 
-    .arena-name{
+    .arena-name {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -134,17 +134,18 @@ export default {
         position: absolute;
         font-size: 2em;
         top: 100px;
-        right:30px;
+        right: 30px;
         padding: 10px;
         background-color: rgba(0, 0, 0, 0.121);
         color: white;
         border-radius: 50%;
-        
-        &:hover{
+
+        &:hover {
             color: red;
         }
-        
+
     }
+
     .item {
         width: 100vw;
         height: calc(100vh - 77px);

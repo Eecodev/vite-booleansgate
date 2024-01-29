@@ -14,9 +14,4 @@ Equipaggia i tuoi personaggi con una vasta gamma di items generati automaticamen
 💣 Sfida il Destino:
 Ogni combattimento è un'opportunità per dimostrare le tue abilità tattiche. Sfrutta al massimo gli items a tua disposizione e preparati a una sfida avvincente!
 
-🌐 Condividi la Tua Avventura:
-Cattura i momenti più epici e condividili con gli amici. BooleansGate è progettato per essere condiviso e discusso, quindi porta i tuoi amici nell'arena per vedere chi è il vero maestro del combattimento!
-
-Non perdere l'opportunità di immergerti in un mondo di azione, suspense e personalizzazione senza precedenti. Scarica BooleansGate ora e preparati a un'esperienza di gioco che cambierà le regole del combattimento!
-
 #BooleansGate #CombattimentoEpico #SuspenseSenzaLimiti

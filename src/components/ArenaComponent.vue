@@ -79,7 +79,7 @@
 
         <div v-if="winnerMessage" class="d-flex justify-content-center ">
             <h1 class=" display-1 text-center win-container"
-                :class="{ 'win': (percentageLife2 <= 0), 'draw': (percentageLife2 <= 0 && percentageLife1 <= 0), 'lose': (percentageLife1 <= 0) }">
+                :class="{ 'draw': (percentageLife2 <= 0 && percentageLife1 <= 0), 'win': (percentageLife2 <= 0), 'lose': (percentageLife1 <= 0) }">
                 {{ winnerMessage }}</h1>
         </div>
 
@@ -453,7 +453,7 @@ export default {
 }
 
 .draw {
-    color: yellow;
+    color: yellow !important;
 }
 
 .lose {
