@@ -18,7 +18,6 @@
 
 <script>
 import axios from 'axios';
-import MarkdownIt from 'markdown-it';
 import { store } from '../assets/data/store';
 
 export default {
